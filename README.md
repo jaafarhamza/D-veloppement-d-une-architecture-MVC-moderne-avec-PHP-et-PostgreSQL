@@ -101,3 +101,11 @@ Voici les bonnes pratiques à suivre pour assurer une architecture MVC moderne e
 6. **Utilisation d’un fichier .htaccess**
    - Redirection vers index.php pour un système de routing propre.
    - Désactivation de l’accès aux fichiers sensibles (ex: .env).
+
+
+
+
+
+
+
+   
