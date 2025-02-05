@@ -46,8 +46,27 @@ class __TwigTemplate_f5580e9b2ac446c3e7ed09f5ce25c49cd6bff82303682df72a18a79ce2b
     <body>
         <h1>";
         // line 8
-        echo twig_escape_filter($this->env, ($context["content"] ?? null), "html", null, true);
+        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
         echo "</h1>
+        <ul>
+            ";
+        // line 10
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["articles"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 11
+            echo "                <li>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 11), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "content", [], "any", false, false, false, 11), "html", null, true);
+            echo "</li>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 13
+        echo "        </ul>
     </body>
 </html>";
     }
@@ -64,7 +83,7 @@ class __TwigTemplate_f5580e9b2ac446c3e7ed09f5ce25c49cd6bff82303682df72a18a79ce2b
 
     public function getDebugInfo()
     {
-        return array (  49 => 8,  43 => 5,  37 => 1,);
+        return array (  69 => 13,  58 => 11,  54 => 10,  49 => 8,  43 => 5,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -76,7 +95,12 @@ class __TwigTemplate_f5580e9b2ac446c3e7ed09f5ce25c49cd6bff82303682df72a18a79ce2b
         <title>{{ title }}</title>
     </head>
     <body>
-        <h1>{{ content }}</h1>
+        <h1>{{ title }}</h1>
+        <ul>
+            {% for article in articles %}
+                <li>{{ article.title }} - {{ article.content }}</li>
+            {% endfor %}
+        </ul>
     </body>
 </html>", "front/article.twig", "C:\\laragon\\www\\D-veloppement-d-une-architecture-MVC-moderne-avec-PHP-et-PostgreSQL\\app\\views\\front\\article.twig");
     }

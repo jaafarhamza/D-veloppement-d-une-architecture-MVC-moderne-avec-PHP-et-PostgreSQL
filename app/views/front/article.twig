@@ -5,6 +5,11 @@
         <title>{{ title }}</title>
     </head>
     <body>
-        <h1>{{ content }}</h1>
+        <h1>{{ title }}</h1>
+        <ul>
+            {% for article in articles %}
+                <li>{{ article.title }} - {{ article.content }}</li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

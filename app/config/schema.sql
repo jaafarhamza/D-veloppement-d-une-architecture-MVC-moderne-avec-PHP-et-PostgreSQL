@@ -32,3 +32,15 @@ INSERT INTO articles (title, content, author_id) VALUES (
 );
 
 SELECT * from articles;
+
+-- insert user
+INSERT INTO users (username, password, email, role) VALUES (
+    'admin',
+    'admin123',
+    'admin@admin.com',
+    'admin');
+
+    INSERT INTO users (username, password, email) VALUES (
+    'user',
+    'user123',
+    'user@user.com');

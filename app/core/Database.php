@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Core;
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Dotenv\Dotenv;
@@ -9,7 +11,7 @@ use PDOException;
 class Database
 {
     private $pdo;
-    Private static $instance = null;
+    private static $instance = null;
 
     public function __construct()
     {
@@ -31,7 +33,7 @@ class Database
             ]);
             echo "Connexion réussie.";
         } catch (PDOException $e) {
-            echo "Erreur de connexion : " . $e->getMessage();
+            echo "Erreur connexion : " . $e->getMessage();
         }
     }
     public static function getInstance()
@@ -47,4 +49,4 @@ class Database
     }
 }
 
-$db = new Database();
+// $db = new Database();

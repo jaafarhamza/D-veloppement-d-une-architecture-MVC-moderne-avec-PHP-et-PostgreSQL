@@ -11,8 +11,8 @@
         <h1>Admin Dashboard</h1>
         <nav>
             <ul>
-                <li><a href="/admin/dashboard">Dashboard</a></li>
-                <li><a href="/admin/users">Users</a></li>
+                <li><a href="/dashboard.twig">Dashboard</a></li>
+                <li><a href="/Users.twig">Users</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </nav>
@@ -24,14 +24,6 @@
             <h3>Statistics</h3>
             <p>Number of users: {{ user_count }}</p>
             <p>Number of articles: {{ article_count }}</p>
-        </section>
-        <section>
-            <h3>Recent Activities</h3>
-            <ul>
-                {% for activity in recent_activities %}
-                    <li>{{ activity }}</li>
-                {% endfor %}
-            </ul>
         </section>
     </main>
     <footer>

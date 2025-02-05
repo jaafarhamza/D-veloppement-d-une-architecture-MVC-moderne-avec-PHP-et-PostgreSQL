@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Back;
+namespace App\Controllers\Back;
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+use App\Models\User;
+use App\Models\Article;
+use App\Core\Controller;
 
-class DashboardController {
-    public function index() {
-        $loader = new FilesystemLoader('../app/views');
-        $twig = new Environment($loader);
+class DashboardController extends Controller
+{
+    public function index()
+    {
+        $userModel = new User();
+        $articleModel = new Article();
 
         $data = [
-            'user_count' => 150,
-            'article_count' => 45,
-            'recent_activities' => [
-                'User John Doe logged in',
-                'Article "How to use Twig" was published',
-                'User Jane Smith registered'
-            ]
+            'user_count' => $userModel->count(),
+            'article_count' => $articleModel->count(),
         ];
-        echo $twig->render('back/dashboard.twig', $data);
+
+        echo $this->render('back/dashboard', $data);
     }
 }
